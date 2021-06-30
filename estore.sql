@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2018 at 10:18 AM
--- Server version: 10.1.24-MariaDB
--- PHP Version: 7.1.6
+-- Generation Time: Jun 30, 2021 at 03:22 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,8 +47,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `username`, `email`, `phone`, `password`, `gender`, `dob`, `nid`, `presentaddress`, `parmanentaddress`) VALUES
-(1, 'john', 'shanto', 'john@gmail.com', '', 'sha1$ebb2bdc9$1$d77148ab8c6268c2f43b5fafdfa3f0405bd24306', 'male', '1996-05-24', '19979972342363842', 'H-23,R-4,Nikunja-2,Khilkhet,Dhaka', 'Dhaka'),
-(2, 'arnob', 'arnob', 'ar@gmIL.COM', '', 'sha1$f77072c1$1$ffafbbe013a168ccde2c4c3ee99cc322e05854c6', 'male', '9843-12-12', '3245465756543', 'wgbnb,hstr', 'geawaiuobvgair,gaer');
+(1, 'Noyon', 'shanto', 'shanto@gmail.com', '', '123456', 'male', '1996-05-24', '19979972342363842', 'H-23,R-4,Nikunja-2,Khilkhet,Dhaka', 'Dhaka'),
+(2, 'arnob', 'arnob', 'ar@gmIL.COM', '', 'sha1$f77072c1$1$ffafbbe013a168ccde2c4c3ee99cc322e05854c6', 'male', '9843-12-12', '3245465756543', 'wgbnb,hstr', 'geawaiuobvgair,gaer'),
+(3, 'steven oluwajuwon', 'kingzmen ', 'stevenborngreat4@gmail.com', '', 'sha1$121308d5$1$4be99241e450b447c64276b90cab39f0c0f34f78', 'male', '2021-06-23', '', 'no 2 Delly street Obawole Ogba Lagos state', '');
 
 -- --------------------------------------------------------
 
@@ -74,12 +75,10 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `productname`, `price`, `quantity`, `catagory`, `image1`, `image2`, `image3`, `details`, `date`) VALUES
-(2, 'Sony HD 4K Smart LED TV', 350, 1, 'Electronics', NULL, NULL, NULL, '', '0000-00-00'),
-(3, 'Biskut', 12, 200, 'Food', NULL, NULL, NULL, 'Lohar Biskut', '0000-00-00'),
-(6, 'Amazfit Bip smart watch', 4800, 1, 'Electronics', NULL, NULL, NULL, 'Watch', '0000-00-00'),
-(7, 'Touhid', 10, 1, 'Men', NULL, NULL, NULL, 'lsiddlsfuklh', '0000-00-00'),
-(8, 'Shanto\'s Ball', 2, 2, 'Men', NULL, NULL, NULL, 'Nice Soft Black Punchable', '0000-00-00'),
-(9, 'Watch', 200, 12, 'Electronics', NULL, NULL, NULL, 'Abc', '0000-00-00');
+(2, 'Sony HD 4K Smart LED TV', 350, 1, 'Electronics', 'https://i.imgur.com/ruU04I6.jpg', 'https://i.imgur.com/ruU04I6.jpg', NULL, '', '0000-00-00'),
+(10, 'Cloth', 5000, 1000, 'Electronics', 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80', NULL, NULL, '', '0000-00-00'),
+(14, 'shoe me', 5000, 1000, 'Electronics', 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80', '', '', 'good one', '0000-00-00'),
+(15, 'Cloth', 5000, 1000, 'Electronics', 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80', '', '', 'good', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -96,7 +95,7 @@ CREATE TABLE `soldproduct` (
   `address` int(11) NOT NULL,
   `zipcode` varchar(128) NOT NULL,
   `delivery` varchar(128) NOT NULL DEFAULT 'no',
-  `Orderdate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Orderdate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -201,11 +200,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`) VALUES
-(30, 'Md. John Doe', 'noyon', 'noyon892@gmail.com', 'sha1$57f1ff4a$1$ba87cb8290a3bafe3d283d25f4a33d22e681cb2f', '1733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
-(31, 'Md. John Doe', 'noyon892', 'noyon@gmail.com', 'sha1$3ea3ed64$1$43ed3d8b7e5f8c07163bc5e0c8c7d1005c77de2e', '01733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
-(32, 'Md. John Doe', 'noyon8920', 'noyon8920@gmail.com', 'sha1$56996c2c$1$a9abbf21a11ce77b4952a2e18d00bdbd27d3e605', '01733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
-(33, 'Steven', 'souvik420', 'Souvik420@gmail.com', 'sha1$066daa5e$1$d341b8bf72a59ce10a256fc5d92a584a6a74ace4', '01768864040', 'Kahalu,Bogura'),
-(34, 'Md. Hasan Man', 'jame', 'jame@gmail.com', 'sha1$381f4664$1$81c2590f85491f6fb0275dfc3a065fc1b85e4ab7', '01733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna');
+(30, 'Md. Hasan Uzzaman', 'noyon', 'noyon892@gmail.com', 'sha1$57f1ff4a$1$ba87cb8290a3bafe3d283d25f4a33d22e681cb2f', '1733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
+(31, 'Md. Hasan Uzzaman', 'noyon892', 'noyon@gmail.com', 'sha1$3ea3ed64$1$43ed3d8b7e5f8c07163bc5e0c8c7d1005c77de2e', '01733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
+(32, 'Md. Hasan Uzzaman', 'noyon8920', 'noyon8920@gmail.com', 'sha1$56996c2c$1$a9abbf21a11ce77b4952a2e18d00bdbd27d3e605', '01733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
+(33, 'Souvik', 'souvik420', 'Souvik420@gmail.com', 'sha1$066daa5e$1$d341b8bf72a59ce10a256fc5d92a584a6a74ace4', '01768864040', 'Kahalu,Bogura'),
+(34, 'Md. Hasan Uzzaman', 'jame', 'jame@gmail.com', 'sha1$381f4664$1$81c2590f85491f6fb0275dfc3a065fc1b85e4ab7', '01733844422', 'Mahajon Bari,Affratpara,Chatmohar,Pabna'),
+(35, 'steven oluwajuwon', 'kingzmen ', 'stevenborngreat4@gmail.com', 'sha1$8bf3f9c3$1$21bdc2de5bae16e0a1cf4f74f990740c7f893442', '08087509140', 'no 2 Delly street Obawole Ogba Lagos state'),
+(36, 'steven oluwajuwon', 'kingzmen12 ', 'stevenborngrea@gmail.com', 'sha1$7b5bf828$1$f720321fd241b43a024afd12ab7afc765818f8c7', '08087509140', 'no 2 Delly street Obawole Ogba Lagos state');
 
 --
 -- Indexes for dumped tables
@@ -247,22 +248,26 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
 --
 -- AUTO_INCREMENT for table `soldproduct`
 --
 ALTER TABLE `soldproduct`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

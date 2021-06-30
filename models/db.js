@@ -1,9 +1,9 @@
 var mysql      = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '',
-  database : 'estore'
+  host     : 'freedb.tech',
+  user     : 'freedbtech_awoof',
+  password : 'winnersme',
+  database : 'freedbtech_awoofsales'
 });
 
 module.exports={
